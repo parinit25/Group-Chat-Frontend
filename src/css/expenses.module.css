@@ -1,0 +1,222 @@
+/* .container {
+  background-color: #eaf5f4;
+}
+
+.expenses-leaderboard-container {
+  display: grid;
+  padding: 3.2rem;
+  grid-template-columns: 60% 40%; 
+  column-gap: 3.2rem;
+}
+
+.expenses-table {
+}
+
+.expenses-leaderboard {
+}
+
+.secondary-heading-container {
+  background-color: #bfe2dd !important;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-secondary-heading {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  min-width: 17rem !important;
+  display: block;
+}
+
+.table-header-row {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  background-color: #eaf5f4 !important;
+  min-width: 12rem !important;
+}
+
+.table-header {
+  display: block;
+  background-color: #2a9d8f;
+  padding: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+.table-row-values {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+}
+.buy-premium-text-container {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+.buy-premium-text-container ion-icon {
+  justify-self: center;
+  align-self: center;
+  border: 2px solid #2a9d8f;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.buy-premium-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.no-expense-text-container {
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.delete-icon-container ion-icon {
+  color: red;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.delete-icon-container ion-icon:hover {
+  animation: shake 0.5s; 
+} */
+.container {
+  background-color: #eaf5f4;
+}
+
+.expenses-leaderboard-container {
+  display: grid;
+  padding: 3.2rem;
+  grid-template-columns: 60% 40%;
+  column-gap: 3.2rem;
+}
+
+.expenses-table {
+}
+
+.expenses-leaderboard {
+}
+
+.secondary-heading-container {
+  background-color: #bfe2dd !important;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-secondary-heading {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  min-width: 17rem !important;
+  display: block;
+}
+
+.table-header-row {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  background-color: #eaf5f4 !important;
+  min-width: 12rem !important;
+}
+
+.table-header {
+  display: block;
+  background-color: #2a9d8f;
+  padding: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+
+.table-row-values {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+}
+
+.buy-premium-text-container {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-premium-text-container ion-icon {
+  justify-self: center;
+  align-self: center;
+  border: 2px solid #2a9d8f;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.buy-premium-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.no-expense-text-container {
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.delete-icon-container ion-icon {
+  color: red;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.delete-icon-container ion-icon:hover {
+  animation: shake 0.5s;
+}
+
+@media (max-width: 768px) {
+  .expenses-leaderboard-container {
+    grid-template-columns: 1fr;
+    row-gap: 3.2rem;
+  }
+}
