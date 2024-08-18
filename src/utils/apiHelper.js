@@ -38,7 +38,7 @@ class ApiHelper {
           if (error.response.status === 403 && !originalRequest._retry) {
             originalRequest._retry = true;
             const newAccessToken = await this.refreshAccessToken();
-
+            console.log(newAccessToken);
             if (newAccessToken) {
               localStorage.setItem("accessToken", newAccessToken);
               axios.defaults.headers.common[
@@ -72,7 +72,8 @@ class ApiHelper {
         emailId: userEmailId.emailId,
       });
       toast.success("Access token refreshed successfully!");
-      return response.data.accessToken;
+      console.log(response.data.data);
+      return response.data.data;
     } catch (error) {
       toast.error("Failed to refresh access token. Please log in again.");
       return null;

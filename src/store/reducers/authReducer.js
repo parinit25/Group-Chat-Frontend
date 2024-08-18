@@ -17,8 +17,11 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     clearUser(state, action) {
+      // Clear the user state
       state.user = null;
       localStorage.removeItem("accessToken");
+      document.cookie =
+        "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT";
     },
   },
   extraReducers: (builder) => {

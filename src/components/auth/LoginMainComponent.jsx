@@ -1,29 +1,29 @@
-import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
 import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   getUserInfoAction,
   userLoginAction,
 } from "../../store/actions/asyncAuthActions";
-import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
 export default function LoginMainComponent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -33,15 +33,15 @@ export default function LoginMainComponent() {
     };
     try {
       const response = await dispatch(userLoginAction(userData));
-      console.log(response, "response");
       localStorage.setItem("accessToken", response.payload.data.accessToken);
       await dispatch(getUserInfoAction());
       const isSecure = window.location.protocol === "https:";
       const secureFlag = isSecure ? "; Secure" : "";
-      document.cookie = `refreshToken=${response.payload.refreshToken}; Path=/${secureFlag}`;
+      document.cookie = `refreshToken=${response.payload.data.refreshToken}; Path=/${secureFlag}`;
       navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
+      throw new Error(error);
     }
   };
 
@@ -58,7 +58,7 @@ export default function LoginMainComponent() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
+            {/* <LockOutlinedIcon /> */}
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -115,7 +115,6 @@ export default function LoginMainComponent() {
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   );
