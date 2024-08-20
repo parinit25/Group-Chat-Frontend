@@ -12,7 +12,7 @@ export const addContactAction = createAsyncThunk(
   "addContactAction",
   async (contact, thunkAPI) => {
     await apiChatService.addContact(contact);
-    thunkAPI.dispatch(getContactAndLatestMesssageAction());
+    thunkAPI.dispatch(getAllContactsAction());
   }
 );
 export const getAllContactsAction = createAsyncThunk(

@@ -20,7 +20,7 @@ const ChatArea = () => {
   const { emitEvent, listenToEvent, removeListener } = useSocket(userData);
 
   useEffect(() => {
-    if (chatAreaState === "individual") {
+    if (chatAreaState === "individual" && userData.id && contactId) {
       emitEvent("joinChat", {
         senderId: userData.id,
         receiverId: contactId,

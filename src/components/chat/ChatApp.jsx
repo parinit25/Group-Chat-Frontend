@@ -5,8 +5,17 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Sidebar from "./Sidebar";
 import ChatArea from "./ChatArea";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import { default as MuiDrawer } from "@mui/material/Drawer";
+import logo from "../assests/gc-logo.png";
+import { useNavigate } from "react-router-dom";
+
+const logoStyle = {
+  width: "140px",
+  height: "auto",
+  cursor: "pointer",
+};
+
 const drawerWidth = 300;
 
 const openedMixin = (theme) => ({
@@ -56,6 +65,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function ChatApp() {
+  const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -71,35 +81,61 @@ export default function ChatApp() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="close drawer"
-            onClick={handleDrawerClose}
-            edge="start"
-            sx={{
-              ...(!open && { display: "none" }),
-            }}
-          >
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
+        <DrawerHeader
+          sx={{
+            display: "flex",
+            justifyContent: open ? "space-between" : "end",
+          }}
+        >
+          <>
+            {open && (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginLeft: theme.spacing(1),
+                }}
+              >
+                <img
+                  src={logo}
+                  style={logoStyle}
+                  alt="logo"
+                  onClick={() => navigate("/")}
+                />
+              </Box>
             )}
-          </IconButton>
+          </>
+          <Box>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              aria-label="close drawer"
+              onClick={handleDrawerClose}
+              edge="start"
+              sx={{
+                ...(!open && { display: "none" }),
+              }}
+            >
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </Box>
         </DrawerHeader>
-        <Sidebar open={open}/>
+
+        <Sidebar open={open} />
         <Divider />
       </Drawer>
       <ChatArea />

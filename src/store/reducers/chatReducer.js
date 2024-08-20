@@ -49,7 +49,7 @@ const chatSlice = createSlice({
     builder.addCase(getAllMessageAction.fulfilled, (state, action) => {
       const response = action.payload;
       // console.log(response, "response response response");
-      console.log(response, "allMessagesData");
+      // console.log(response, "allMessagesData");
       state.allMessagesData = response;
     });
     builder.addCase(searchContactAction.fulfilled, (state, action) => {
@@ -60,8 +60,11 @@ const chatSlice = createSlice({
     builder.addCase(getAllContactsAction.fulfilled, (state, action) => {
       const response = action.payload;
       state.userContacts = response.Contacts;
-      console.log("first");
-      console.log(response.Contacts);
+      if (state.contactId === null) {
+        state.contactId = response.Contacts[0].id;
+      }
+      // console.log("first");
+      // console.log(response.Contacts);
     });
     builder.addCase(getParticularContactAction.fulfilled, (state, action) => {
       const response = action.payload;
