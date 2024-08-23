@@ -194,7 +194,7 @@ const GroupChat = ({ emitEvent, listenToEvent, removeListener }) => {
       if (selectedFile) {
         try {
           const { data } = await axios.post(
-            "http://localhost:3000/generate-presigned-url",
+            "https://group-chat-sharpener.twilightparadox.com/generate-presigned-url",
             {
               fileName: selectedFile.name,
               fileType: selectedFile.type,

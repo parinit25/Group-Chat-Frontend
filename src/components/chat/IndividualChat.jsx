@@ -1,15 +1,12 @@
 import AttachFileIcon from "@mui/icons-material/AttachFile";
-import CallIcon from "@mui/icons-material/Call";
 import CodeIcon from "@mui/icons-material/Code";
 import DescriptionIcon from "@mui/icons-material/Description";
 import FolderZipIcon from "@mui/icons-material/FolderZip";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import SendIcon from "@mui/icons-material/Send";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
-import VideocamIcon from "@mui/icons-material/Videocam";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -110,7 +107,7 @@ const IndividualChat = ({ emitEvent, listenToEvent, removeListener }) => {
       if (selectedFile) {
         try {
           const { data } = await axios.post(
-            "http://localhost:3000/generate-presigned-url",
+            "https://group-chat-sharpener.twilightparadox.com/generate-presigned-url",
             {
               fileName: selectedFile.name,
               fileType: selectedFile.type,
@@ -178,15 +175,6 @@ const IndividualChat = ({ emitEvent, listenToEvent, removeListener }) => {
               {contactDetails?.firstName} {contactDetails?.lastName}
             </Typography>
           </Box>
-          <IconButton>
-            <CallIcon />
-          </IconButton>
-          <IconButton>
-            <VideocamIcon />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
         </ChatHeader>
         <ChatMessageList>
           <TransitionGroup>

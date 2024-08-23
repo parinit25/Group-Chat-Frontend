@@ -7,7 +7,7 @@ class ApiHelper {
   constructor() {
     if (!ApiHelper.instance) {
       this.client = axios.create({
-        baseURL: "http://localhost:3000",
+        baseURL: "https://group-chat-sharpener.twilightparadox.com",
         headers: {
           "Content-Type": "application/json",
         },
@@ -67,7 +67,7 @@ class ApiHelper {
       if (!refreshToken) {
         throw new Error("No refresh token available");
       }
-      const response = await axios.post("http://localhost:3000/auth/refresh", {
+      const response = await axios.post("https://group-chat-sharpener.twilightparadox.com/auth/refresh", {
         refreshToken: refreshToken,
         emailId: userEmailId.emailId,
       });
@@ -100,7 +100,7 @@ class ApiHelper {
     return this.client
       .get(url, { params })
       .then((response) => {
-        toast.success(response?.data?.message);
+        // toast.success(response?.data?.message);
         console.log(response);
         return response.data;
       })

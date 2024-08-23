@@ -25,6 +25,13 @@ const groupSlice = createSlice({
     getGroupMessage(state, action) {
       state.groupMessages = [...state.groupMessages, action.payload];
     },
+    userLogoutGroup(state, action) {
+      state.groups = [];
+      state.groupId = null;
+      state.groupDetails = null;
+      state.groupMembers = [];
+      state.groupMessages = [];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAllGroupsAction.fulfilled, (state, action) => {
@@ -52,5 +59,6 @@ const groupSlice = createSlice({
     });
   },
 });
-export const { changeGroupId, getGroupMessage } = groupSlice.actions;
+export const { changeGroupId, getGroupMessage, userLogoutGroup } =
+  groupSlice.actions;
 export default groupSlice.reducer;

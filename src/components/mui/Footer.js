@@ -1,16 +1,14 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import * as React from "react";
 
-import FacebookIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/X";
+import { LinkedIn } from "@mui/icons-material";
+import GitHub from "@mui/icons-material/GitHub";
 import logo from "../assests/gc-logo.png";
 
 const logoStyle = {
@@ -20,9 +18,16 @@ const logoStyle = {
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" mt={1}>
+    <Typography
+      sx={{ fontFamily: "Poppins" }}
+      variant="body2"
+      color="text.secondary"
+      mt={1}
+    >
       {"Copyright © "}
-      <Link href="https://mui.com/">Group Chat&nbsp;</Link>
+      <Typography sx={{ fontFamily: "Poppins" }} href="https://mui.com/">
+        Group Chat&nbsp;
+      </Typography>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -60,10 +65,20 @@ export default function Footer() {
             <Box sx={{ ml: "-15px" }}>
               <img src={logo} style={logoStyle} alt="logo of sitemark" />
             </Box>
-            <Typography variant="body2" fontWeight={600} gutterBottom>
+            <Typography
+              sx={{ fontFamily: "Poppins" }}
+              variant="body2"
+              fontWeight={600}
+              gutterBottom
+            >
               Newsletter
             </Typography>
-            <Typography variant="body2" color="text.secondary" mb={2}>
+            <Typography
+              sx={{ fontFamily: "Poppins" }}
+              variant="body2"
+              color="text.secondary"
+              mb={2}
+            >
               Subscribe to our newsletter for weekly updates and promotions.
             </Typography>
             <Stack direction="row" spacing={1} useFlexGap>
@@ -97,24 +112,48 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" fontWeight={600}>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            variant="body2"
+            fontWeight={600}
+          >
             Product
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            color="text.secondary"
+            href="#"
+          >
             Features
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            color="text.secondary"
+            href="#"
+          >
             Testimonials
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            color="text.secondary"
+            href="#"
+          >
             Highlights
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            color="text.secondary"
+            href="#"
+          >
             Pricing
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            color="text.secondary"
+            href="#"
+          >
             FAQs
-          </Link>
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -123,18 +162,22 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" fontWeight={600}>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            variant="body2"
+            fontWeight={600}
+          >
             Company
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             About us
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             Careers
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             Press
-          </Link>
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -143,74 +186,64 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" fontWeight={600}>
+          <Typography
+            sx={{ fontFamily: "Poppins" }}
+            variant="body2"
+            fontWeight={600}
+          >
             Legal
           </Typography>
-          <Link color="text.secondary" href="#">
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             Terms
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             Privacy
-          </Link>
-          <Link color="text.secondary" href="#">
+          </Typography>
+          <Typography sx={{ fontFamily: "Poppins" }} color="text.secondary">
             Contact
-          </Link>
+          </Typography>
         </Box>
       </Box>
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
-          pt: { xs: 4, sm: 8 },
-          width: "100%",
-          borderTop: "1px solid",
-          borderColor: "divider",
+          justifyContent: "space-between", // Ensures space between the copyright and icons
+          alignItems: "center", // Vertically aligns the items in the center
         }}
       >
-        <div>
-          <Link color="text.secondary" href="#">
-            Privacy Policy
-          </Link>
-          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
-            &nbsp;•&nbsp;
-          </Typography>
-          <Link color="text.secondary" href="#">
-            Terms of Service
-          </Link>
-          <Copyright />
-        </div>
+        <Copyright />
+
         <Stack
           direction="row"
-          justifyContent="left"
+          justifyContent="flex-end" // Aligns the icons to the right within the Stack
           spacing={1}
-          useFlexGap
           sx={{
             color: "text.secondary",
           }}
         >
           <IconButton
             color="inherit"
-            href="https://github.com/mui"
+            href="https://github.com/parinit25"
             aria-label="GitHub"
             sx={{ alignSelf: "center" }}
           >
-            <FacebookIcon />
+            <GitHub sx={{ fontSize: "3rem" }} />
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://x.com/MaterialUI"
-            aria-label="X"
-            sx={{ alignSelf: "center" }}
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://www.linkedin.com/company/mui/"
+            href="https://www.linkedin.com/in/parinit-singh-a60983287/"
             aria-label="LinkedIn"
             sx={{ alignSelf: "center" }}
           >
-            <LinkedInIcon />
+            <LinkedIn sx={{ fontSize: "3rem" }} />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href="https://www.Typographyedin.com/company/mui/"
+            aria-label="TypographyedIn"
+            sx={{ alignSelf: "center" }}
+          >
+            <Typography sx={{ fontFamily: "Poppins" }} edInIcon />
           </IconButton>
         </Stack>
       </Box>

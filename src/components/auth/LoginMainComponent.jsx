@@ -33,11 +33,20 @@ export default function LoginMainComponent() {
     };
     try {
       const response = await dispatch(userLoginAction(userData));
-      localStorage.setItem("accessToken", response.payload.data.accessToken);
-      await dispatch(getUserInfoAction());
+      if (response?.payload?.data?.accessToken) {
+        localStorage.setItem(
+          "accessToken",
+          response?.payload?.data?.accessToken
+        );
+      }
       const isSecure = window.location.protocol === "https:";
       const secureFlag = isSecure ? "; Secure" : "";
-      document.cookie = `refreshToken=${response.payload.data.refreshToken}; Path=/${secureFlag}`;
+      if (response?.payload?.data?.refreshToken) {
+        document.cookie = `refreshToken=${response?.payload?.data?.refreshToken}; Path=/${secureFlag}`;
+      }
+      if (response?.payload?.data?.accessToken) {
+        await dispatch(getUserInfoAction());
+      }
       navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
@@ -60,7 +69,15 @@ export default function LoginMainComponent() {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             {/* <LockOutlinedIcon /> */}
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{
+              fontFamily: "Poppins",
+              fontSize: "2rem",
+              fontWeight: "600",
+            }}
+          >
             Sign in
           </Typography>
           <Box
@@ -74,41 +91,67 @@ export default function LoginMainComponent() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              placeholder="Email Address"
               name="email"
               autoComplete="email"
               autoFocus
+              sx={{
+                mr: 2,
+                "& .MuiInputBase-input::placeholder": {
+                  fontFamily: "Poppins",
+                  fontSize: "1.5rem",
+                },
+                "& .MuiInputBase-input": {
+                  fontFamily: "Poppins",
+                  fontSize: "1.5rem",
+                },
+              }}
             />
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
-              label="Password"
+              placeholder="Password"
               type="password"
               id="password"
               autoComplete="current-password"
+              sx={{
+                mr: 2,
+                "& .MuiInputBase-input::placeholder": {
+                  fontFamily: "Poppins",
+                  fontSize: "1.5rem",
+                },
+                "& .MuiInputBase-input": {
+                  fontFamily: "Poppins",
+                  fontSize: "1.5rem",
+                },
+              }}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, fontFamily: "Poppins", fontSize: "1.5rem" }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/reset-password" variant="body2">
+                {/* <Link href="/reset-password" variant="body2">
                   Forgot password?
-                </Link>
+                </Link> */}
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link
+                  href="/signup"
+                  variant="body2"
+                  sx={{ fontFamily: "Poppins", fontSize: "1.2rem" }}
+                >
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

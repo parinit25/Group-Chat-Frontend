@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../../store/reducers/authReducer";
 import logo from "../assests/gc-logo.png";
 import { useNavigate } from "react-router-dom";
+import { userlogOutIndividual } from "../../store/reducers/chatReducer";
+import { userLogoutGroup } from "../../store/reducers/groupReducer";
 
 const logoStyle = {
   width: "140px",
@@ -23,6 +25,8 @@ function AppAppBar({ mode, toggleColorMode }) {
 
   const userLogoutHandler = () => {
     dispatch(clearUser());
+    dispatch(userlogOutIndividual());
+    dispatch(userLogoutGroup());
   };
 
   return (

@@ -46,7 +46,15 @@ export default function SignupMainComponent() {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{
+              fontFamily: "Poppins",
+              fontSize: "2rem",
+              fontWeight: "600",
+            }}
+          >
             Sign up
           </Typography>
           <Box
@@ -63,8 +71,19 @@ export default function SignupMainComponent() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  placeholder="First Name"
                   autoFocus
+                  sx={{
+                    mr: 2,
+                    "& .MuiInputBase-input::placeholder": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                    "& .MuiInputBase-input": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -72,9 +91,20 @@ export default function SignupMainComponent() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  placeholder="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  sx={{
+                    mr: 2,
+                    "& .MuiInputBase-input::placeholder": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                    "& .MuiInputBase-input": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -82,9 +112,20 @@ export default function SignupMainComponent() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  placeholder="Email Address"
                   name="email"
                   autoComplete="email"
+                  sx={{
+                    mr: 2,
+                    "& .MuiInputBase-input::placeholder": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                    "& .MuiInputBase-input": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -92,10 +133,21 @@ export default function SignupMainComponent() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  placeholder="Password"
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  sx={{
+                    mr: 2,
+                    "& .MuiInputBase-input::placeholder": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                    "& .MuiInputBase-input": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -103,9 +155,20 @@ export default function SignupMainComponent() {
                   required
                   fullWidth
                   name="phoneNumber"
-                  label="Phone Number"
+                  placeholder="Phone Number"
                   type="tel"
                   id="phoneNumber"
+                  sx={{
+                    mr: 2,
+                    "& .MuiInputBase-input::placeholder": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                    "& .MuiInputBase-input": {
+                      fontFamily: "Poppins",
+                      fontSize: "1.5rem",
+                    },
+                  }}
                   // autoComplete="new-password"
                 />
               </Grid>
@@ -114,13 +177,17 @@ export default function SignupMainComponent() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, fontFamily: "Poppins", fontSize: "1.5rem" }}
             >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link
+                  href="/login"
+                  variant="body2"
+                  sx={{ fontFamily: "Poppins", fontSize: "1.2rem" }}
+                >
                   Already have an account? Sign in
                 </Link>
               </Grid>

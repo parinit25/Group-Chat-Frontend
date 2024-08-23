@@ -9,6 +9,7 @@ import { getParticularGroupAction } from "../../store/actions/asyncGroupActions"
 import GroupChat from "./GroupChat";
 import IndividualChat from "./IndividualChat";
 import { messageFromSocketReducer } from "../../store/reducers/chatReducer";
+import SearchContact from "./SearchContact";
 
 const ChatArea = () => {
   const dispatch = useDispatch();
@@ -70,11 +71,15 @@ const ChatArea = () => {
   return (
     <>
       {chatAreaState === "individual" ? (
-        <IndividualChat
-          emitEvent={emitEvent}
-          listenToEvent={listenToEvent}
-          removeListener={removeListener}
-        />
+        contactId ? (
+          <IndividualChat
+            emitEvent={emitEvent}
+            listenToEvent={listenToEvent}
+            removeListener={removeListener}
+          />
+        ) : (
+          <SearchContact />
+        )
       ) : (
         <GroupChat
           emitEvent={emitEvent}

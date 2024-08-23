@@ -7,7 +7,7 @@ const useSocket = (userData) => {
 
   useEffect(() => {
     if (userData) {
-      socketRef.current = io("http://localhost:3000", {
+      socketRef.current = io("https://group-chat-sharpener.twilightparadox.com", {
         query: { userId: userData.id },
       });
 

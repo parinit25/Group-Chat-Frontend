@@ -27,6 +27,15 @@ const chatSlice = createSlice({
     changeChatAreaState(state, action) {
       state.chatAreaState = action.payload;
     },
+    userlogOutIndividual(state, action) {
+      state.contactAndLatestMessage = [];
+      state.contactId = null;
+      state.allMessagesData = [];
+      state.searchData = [];
+      state.userContacts = [];
+      state.contactDetails = undefined;
+      state.chatAreaState = "individual";
+    },
     messageFromSocketReducer(state, action) {
       state.allMessagesData.messages = [
         ...state.allMessagesData?.messages,
@@ -61,7 +70,7 @@ const chatSlice = createSlice({
       const response = action.payload;
       state.userContacts = response.Contacts;
       if (state.contactId === null) {
-        state.contactId = response.Contacts[0].id;
+        state.contactId = response.Contacts[0]?.id;
       }
       // console.log("first");
       // console.log(response.Contacts);
@@ -77,5 +86,6 @@ export const {
   changeContactId,
   changeChatAreaState,
   messageFromSocketReducer,
+  userlogOutIndividual,
 } = chatSlice.actions;
 export default chatSlice.reducer;
