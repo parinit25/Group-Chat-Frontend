@@ -20,6 +20,7 @@ import {
 import {
   getGroupMessagesAction,
   getParticularGroupAction,
+  leaveGroupAction,
 } from "../../store/actions/asyncGroupActions";
 import { formatDateTime } from "../../utils/formatDateTime";
 import { GroupInfoDialog } from "./GroupInfoDialog";
@@ -302,7 +303,7 @@ const GroupChat = ({ emitEvent, listenToEvent, removeListener }) => {
                 handleInfoDialogOpen();
               }}
             >
-              <Typography
+              {/* <Typography
                 sx={{
                   fontFamily: "Poppins",
                   fontSize: "1rem",
@@ -312,7 +313,7 @@ const GroupChat = ({ emitEvent, listenToEvent, removeListener }) => {
                 }}
               >
                 <InfoIcon sx={{ fontSize: "2rem" }} /> <> Info</>
-              </Typography>
+              </Typography> */}
             </MenuItem>
             <MenuItem
               onClick={() => {
@@ -332,7 +333,12 @@ const GroupChat = ({ emitEvent, listenToEvent, removeListener }) => {
                 <PeopleIcon sx={{ fontSize: "2rem" }} /> <>Members</>
               </Typography>
             </MenuItem>
-            <MenuItem onClick={handleClose}>
+            <MenuItem
+              onClick={() => {
+                dispatch(leaveGroupAction(groupId));
+                handleClose();
+              }}
+            >
               <Typography
                 sx={{
                   fontFamily: "Poppins",
@@ -354,12 +360,12 @@ const GroupChat = ({ emitEvent, listenToEvent, removeListener }) => {
             />
           )}
 
-          {infoDialog && (
+          {/* {infoDialog && (
             <GroupInfoDialog
               infoDialog={infoDialog}
               onCloseInfo={handleInfoDialogClose}
             />
-          )}
+          )} */}
         </ChatHeader>
         <ChatMessageList>
           <TransitionGroup>

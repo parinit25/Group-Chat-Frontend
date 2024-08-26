@@ -97,7 +97,9 @@ class apiGroupServices {
 
   async leaveGroup(groupId) {
     try {
-      const response = await ApiHelper.post(`/groups/leave-group/${groupId}`);
+      const response = await ApiHelper.post(`/groups/leave-group`, {
+        groupId: groupId,
+      });
       return response.data;
     } catch (error) {
       console.error(

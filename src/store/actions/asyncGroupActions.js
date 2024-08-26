@@ -8,6 +8,7 @@ export const createGroupAction = createAsyncThunk(
   async (groupData, thunkAPI) => {
     try {
       const response = await apiGroupService.createGroup(groupData);
+      thunkAPI.dispatch(getAllGroupsAction());
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -109,6 +110,7 @@ export const leaveGroupAction = createAsyncThunk(
   async (groupId, thunkAPI) => {
     try {
       const response = await apiGroupService.leaveGroup(groupId);
+      thunkAPI.dispatch(getAllGroupsAction());
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(
